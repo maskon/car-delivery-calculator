@@ -296,7 +296,20 @@ function function3() {
 // Функция появления блока с результатами
 calcBtn.addEventListener('click', function(e) {
     e.preventDefault()
-    if (parseFloat(volumeInput.value) > 1900) {
+    if (priceInput.value <= 50) {
+        textError.textContent = 'Пожалуйста заполните все поля';
+        return;
+    }
+    else if (volumeInput.value <= 0) {
+        textError.textContent = 'Пожалуйста заполните все поля';
+        return;
+    }
+    else if (parseFloat(volumeInput.value) > 1900) {
+        textError.textContent = 'Согласно санкций установлен запрет на экспорт автомобилей в Россию с объемом двигателя свыше 1900 куб.см.';
+        return;
+    }
+    else if (poverInput.value <= 0) {
+        textError.textContent = 'Пожалуйста заполните все поля';
         return;
     }
     blockResult.classList.remove('hidden');
