@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+<form method="post" class="form" id="form">
+    <p>
+        <label class="checkbox-wrapper">
+            <span class="title__inline">Аукционная стоимость JPY</span>
+            <input type="number" min="0" max="200" value="50" id="price-input" class="title__inline" />
+            <span class="title__inline" id="price-text"></span>
+        </label>
+    </p>
+    <p>
+        <span class="form-control-wrap">
+            <label class="checkbox-wrapper">
+                <span class="title__inline">Возраст автомобиля</span>
+                <select name="type_of_house" class="form-control" id="mySelect"> 
+                    <option value="option1" name="resale">менее 3 лет</option>
+                    <option value="option2">от 3 до 5 лет</option>
+                    <option value="option3">старше 5 лет</option>  
+                </select>
+            </label>
+        </span>
+    </p>
+    <p>
+        <label class="checkbox-wrapper">
+            <span class="title__inline">Объем куб.см.</span>
+            <input type="number" min="0" max="200" value="0" id="volume-input" class="title__inline input-short" />
+        </label>
+    </p>
+    <p>
+        <label class="checkbox-wrapper">
+            <span class="title__inline">Мощность л.с.</span>
+            <input type="number" min="0" max="200" value="0" id="pover-input" class="title__inline input-short" />
+        </label>
+    </p>
+    <p>
+        <input type="submit" value="Рассчитать" class="form-control" id="calc_btn">
+    </p>
+    <p id="text-error"></p>
+</form>
+<div class="result hidden" id="hidden">
+    <p id="total-result-sum"></p>
+    <div class="result__item">
+        <div class="result__title">Расходы в Японии:</div>
+        <div class="result__block">
+            <span class="result__text">JPY</span>
+            <span class="result__text">USD</span>
+            <span class="result__text">RUB</span>
+        </div> 
+    </div>
+    <div class="result__item">
+        <div class="result__title">Аукционная стоимость:</div>
+        <div class="result__block">
+            <span class="result__text" id="auction-price--JPY">---</span>
+            <span class="result__text"></span>
+            <span class="result__text" id="auction-price--RUB"></span>
+        </div> 
+    </div>
+    <div class="result__item">
+        <div class="result__title">Расходы в Японии от:</div>
+        <div class="result__block">
+            <span class="result__text" id="expenses-japan--JPY">---</span>
+            <span class="result__text"></span>
+            <span class="result__text" id="expenses-japan--RUB"></span>
+        </div> 
+    </div>
+    <div class="result__item">
+        <div class="result__title">Фрахт до Владивостока:</div>
+        <div class="result__block">
+            <span class="result__text"></span>
+            <span class="result__text" id="freight-to-vladivostok--USD"></span>
+            <span class="result__text" id="freight-to-vladivostok--RUB"></span>
+        </div> 
+    </div>
+    <div class="result__item">
+        <div class="result__title">Итого:</div>
+        <div class="result__block">
+            <span class="result__text"></span>
+            <span class="result__text"></span>
+            <span class="result__text" id="total-japan">---</span>
+        </div> 
+    </div>
+    
+    <div class="result__item">
+        <div class="result__title">Расходы в России:</div>
+        <div class="result__block">
+            <span class="result__text">JPY</span>
+            <span class="result__text">USD</span>
+            <span class="result__text">RUB</span>
+        </div> 
+    </div>
+    <div class="result__item">
+        <div class="result__title">Таможенная пошлина и Утилизационный сбор:</div>
+        <div class="result__block">
+            <span class="result__text"></span>
+            <span class="result__text"></span>
+            <span class="result__text" id="volume-input--RUB">---</span>
+        </div> 
+    </div>
+    <div class="result__item">
+        <div class="result__title">Таможенное оформление, услуги брокера, СБКТС,<br>перегон до лаборатории:</div>
+        <div class="result__block">
+            <span class="result__text"></span>
+            <span class="result__text"></span>
+            <span class="result__text" id="customs-clearance--rub">34000</span>
+        </div> 
+    </div>
+    <div class="result__item">
+        <div class="result__title">СВХ (склад временного хранения):</div>
+        <div class="result__block">
+            <span class="result__text"></span>
+            <span class="result__text"></span>
+            <span class="result__text" id="temporary-storage--rub">36000</span>
+        </div> 
+    </div>
+    <div class="result__item">
+        <div class="result__title">Комиссия компании:</div>
+        <div class="result__block">
+            <span class="result__text"></span>
+            <span class="result__text"></span>
+            <span class="result__text" id="company-commission--rub">30000</span>
+        </div> 
+    </div>
+    <div class="result__item">
+        <div class="result__title">Перегоны по Владивостоку:</div>
+        <div class="result__block">
+            <span class="result__text"></span>
+            <span class="result__text"></span>
+            <span class="result__text" id="driving-vladivostok--rub">4000</span>
+        </div> 
+    </div>
+    <div class="result__item">
+        <div class="result__title">Итого:</div>
+        <div class="result__block">
+            <span class="result__text"></span>
+            <span class="result__text"></span>
+            <span class="result__text" id="total--rub">---</span>
+        </div> 
+    </div>
+    <div class="text-valute">
+        <span id="text--JPY"></span>
+        <span id="text--USD"></span>
+        <span id="text--EUR"></span>
+    </div>
+    <div class="text-red">
+        <p>Обратите внимание! Калькулятор, расположенный на этой странице, разработан специально для расчета платежей при ввозе автомобилей для личного пользования. 
+        </p>
+        <p>Стоимость фрахта с отдаленных портов уточняйте у менеджера.
+        </p>
+        <p>Стоимость доставки с Владивостока до Вашего города уточняйте у менеджера.</p>
+        <p>Стоимость оформления на физическое лицо указана без ЭРА-ГЛОНАСС.</p>
+        <p>Мораторий на установку кнопки вызова экстренных служб для физических лиц продлен до 1 февраля 2024 года.</p>
+        <p>Расчёт производится по текущему курсу по данным ЦБ РФ.</p>
+        <p>Итоговая стоимость автомобиля является ориентировочной.</p>
+    </div>
+    
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+.result {
+    max-width: 650px;
+}
+
+.result__item {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+.hidden {
+    display: none;
+}
+
+.result__block {
+    display: flex;
+    justify-content: space-between;
+    min-width: 250px;
+    padding: 0 15px;
+}
+
+
+.text-red {
+    color: red;
+}
+
+.text-valute span {
+    margin-right: 10px;
+}
+
+#text-error {
+    color: red;
+}
