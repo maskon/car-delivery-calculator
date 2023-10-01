@@ -94,7 +94,7 @@ form.addEventListener('input', function() {
     auctionPriceRUB.textContent = +jpyRateRUB.toFixed(0);
     // Выводим Расходы в Японии от
     expensesJapanJPY.textContent = 95000;
-    let expensesJapanConvert = jpyRate * 950000;
+    let expensesJapanConvert = jpyRate * 95000;
     expensesJapanRUB.textContent = expensesJapanConvert.toFixed(0);
     // Выводим Фрахт до Владивостока
     freightToVladivostokUSD.textContent = 500;
