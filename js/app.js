@@ -77,12 +77,13 @@ function getRate() {
     })
 };
 
+let totalJapanConvert;
 
 // Вызов функции для получения курса
 getRate();
 
 form.addEventListener('input', function() {
-    function1()
+
     euroRateRUB = +priceInput.value / euroRate;
     jpyRateRUB = jpyRate * +priceInput.value;
     
@@ -100,12 +101,10 @@ form.addEventListener('input', function() {
     let freightToVladivostokConvert = usdRate * 500;
     freightToVladivostokRUB.textContent = freightToVladivostokConvert.toFixed(0);
     // Выводим итого
-    let totalJapanConvert = +jpyRateRUB + +expensesJapanConvert + +freightToVladivostokConvert;
+    totalJapanConvert = +jpyRateRUB + +expensesJapanConvert + +freightToVladivostokConvert;
     totalJapan.textContent = totalJapanConvert.toFixed(0);
     
-    // Считаем общую сумму и выводим
-    const totalResultSum = sumResult + totalJapanConvert;
-    totalResultSumText.textContent = 'Итого общая сумма: ' + totalResultSum.toFixed(0) + ' руб.';
+    
     
     // Выводим курсы валют
     textJPY.textContent = 'JPY/RUB: ' + jpyRate.toFixed(2)
@@ -122,36 +121,37 @@ form.addEventListener('input', function() {
 
 });
 
-// Добавляем обработчик события change
-selectElement.addEventListener("change", function() {
-// Получаем выбранное значение
-const selectedOption = selectElement.value;
-    
-// Сравниваем выбранное значение и вызываем соответствующую функцию
-  if (selectedOption === "option1") {
-    function1();
-  } else if (selectedOption === "option2") {
-    function2();
-  } else if (selectedOption === "option3") {
-    function3();
-  }
-});
 
 let customsDuty;
 let result;
 let sumResult;
 
-// Функции, которые нужно вызывать в зависимости от выбранного значения
-    
 
-
-function function1(input1, input2) {
-    
-    if (parseFloat(volumeInput.value) > 1900) {
-    textError.textContent = 'Согласно санкций установлен запрет на экспорт автомобилей в Россию с объемом двигателя свыше 1900 куб.см.';
+// Функция появления блока с результатами
+calcBtn.addEventListener('click', function(e) {
+    e.preventDefault()
+    if (priceInput.value <= 50) {
+        textError.textContent = 'Пожалуйста заполните все поля';
+        return;
+    }
+    else if (volumeInput.value <= 0) {
+        textError.textContent = 'Пожалуйста заполните все поля';
+        return;
+    }
+    else if (parseFloat(volumeInput.value) > 1900) {
+        textError.textContent = 'Согласно санкций установлен запрет на экспорт автомобилей в Россию с объемом двигателя свыше 1900 куб.см.';
+        return;
+    }
+    else if (poverInput.value <= 0) {
+        textError.textContent = 'Пожалуйста заполните все поля';
         return;
     }
     
+    blockResult.classList.remove('hidden');
+    
+    const selectedOption = selectElement.value;
+    
+    if (selectedOption === "option1") {
     input1 = parseFloat(priceInput.value) * parseFloat(jpyRate);
     input2 = parseFloat(volumeInput.value) * euroRate + (0.17 * 20000) * 0.54;
     // Пересчитываем euro в рубли
@@ -160,7 +160,6 @@ function function1(input1, input2) {
     const euroRate42300 = parseFloat(euroRate) * 42300;
     const euroRate84500 = parseFloat(euroRate) * 84500;
     const euroRate169000 = parseFloat(euroRate) * 169000;
-    
     
     
     if (input1 <= euroRate8500) {
@@ -224,18 +223,16 @@ function function1(input1, input2) {
   // Считаем сумму Расходы по России
   sumResult = result + customsClearanceRUBText + temporaryStorageRUBText + companyCommissionRUBText + drivingVladivostokRUBText
   totalRUB.textContent = sumResult.toFixed(0);
+        
+  // Считаем общую сумму и выводим
+  const totalResultSum = sumResult + totalJapanConvert;
+  totalResultSumText.textContent = 'Итого общая сумма: ' + totalResultSum.toFixed(0) + ' руб.';
   
   return result;  // Возвращаем результат   
 }
 
-
-function function2() {
-    if (parseFloat(volumeInput.value) > 1900) {
-    textError.textContent = 'Согласно санкций установлен запрет на экспорт автомобилей в Россию с объемом двигателя свыше 1900 куб.см.';
-        return;
-    }
-        
-    else if (parseFloat(volumeInput.value) > 1800) {
+    if (selectedOption === "option2") {
+    if (parseFloat(volumeInput.value) > 1800) {
         customsDuty = (parseFloat(volumeInput.value) * (2.7 * euroRate)) + (0.17 * 20000);
         textError.textContent = '';
         
@@ -259,15 +256,14 @@ function function2() {
     // Считаем сумму Расходы по России
     const sum = customsDuty + customsClearanceRUBText + temporaryStorageRUBText + companyCommissionRUBText + drivingVladivostokRUBText
     totalRUB.textContent = sum.toFixed(0);
-};
-
-function function3() {
-  if (parseFloat(volumeInput.value) > 1900) {
-    textError.textContent = 'Согласно санкций установлен запрет на экспорт автомобилей в Россию с объемом двигателя свыше 1900 куб.см.';
-      return;
-    }
         
-    else if (parseFloat(volumeInput.value) > 1800) {
+    // Считаем общую сумму и выводим
+    const totalResultSum = sum + totalJapanConvert;
+    totalResultSumText.textContent = 'Итого общая сумма: ' + totalResultSum.toFixed(0) + ' руб.';
+};
+    
+    if (selectedOption === "option3") {
+    if (parseFloat(volumeInput.value) > 1800) {
         customsDuty = (parseFloat(volumeInput.value) * (4.8 * euroRate)) + (0.17 * 20000);
         textError.textContent = '';
         
@@ -291,26 +287,10 @@ function function3() {
     // Считаем сумму Расходы по России
     const sum = customsDuty + customsClearanceRUBText + temporaryStorageRUBText + companyCommissionRUBText + drivingVladivostokRUBText
     totalRUB.textContent = sum.toFixed(0);
+        
+    // Считаем общую сумму и выводим
+    const totalResultSum = sum + totalJapanConvert;
+    totalResultSumText.textContent = 'Итого общая сумма: ' + totalResultSum.toFixed(0) + ' руб.';
 };
-
-// Функция появления блока с результатами
-calcBtn.addEventListener('click', function(e) {
-    e.preventDefault()
-    if (priceInput.value <= 50) {
-        textError.textContent = 'Пожалуйста заполните все поля';
-        return;
-    }
-    else if (volumeInput.value <= 0) {
-        textError.textContent = 'Пожалуйста заполните все поля';
-        return;
-    }
-    else if (parseFloat(volumeInput.value) > 1900) {
-        textError.textContent = 'Согласно санкций установлен запрет на экспорт автомобилей в Россию с объемом двигателя свыше 1900 куб.см.';
-        return;
-    }
-    else if (poverInput.value <= 0) {
-        textError.textContent = 'Пожалуйста заполните все поля';
-        return;
-    }
-    blockResult.classList.remove('hidden');
+    
 });
