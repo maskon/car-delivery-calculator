@@ -153,7 +153,7 @@ calcBtn.addEventListener('click', function(e) {
     
     if (selectedOption === "option1") {
     input1 = parseFloat(priceInput.value) * parseFloat(jpyRate);
-    input2 = parseFloat(volumeInput.value) * euroRate + (0.17 * 20000) * 0.54;
+    input2 = parseFloat(volumeInput.value) * euroRate + (0.17 * 20000);
     // Пересчитываем euro в рубли
     const euroRate8500 = parseFloat(euroRate) * 8500;
     const euroRate16700 = parseFloat(euroRate) * 16700;
