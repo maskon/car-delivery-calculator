@@ -217,8 +217,51 @@ calcBtn.addEventListener('click', function(e) {
     }
   } 
     
-  // Выводим результат в текстовое содержимое блока
-  volumeInputRUB.textContent = result.toFixed(0);  // где переменная result содержит ваш результат
+  // Считаем таможенную пошлину 
+    if  (result < 200000) {
+        result += 775;
+        volumeInputRUB.textContent = result.toFixed(0);
+    }
+    else if (result < 450000) {
+        result += 1550;
+        volumeInputRUB.textContent = result.toFixed(0);
+    }
+    else if (result < 1200000) {
+        result += 3100;
+        volumeInputRUB.textContent = result.toFixed(0);
+    }
+    else if (result < 2700000) {
+        result += 8530;
+        volumeInputRUB.textContent = result.toFixed(0);
+    }
+    else if (result < 4200000) {
+        result += 12000;
+        volumeInputRUB.textContent = result.toFixed(0);
+    }
+    else if (result < 5500000) {
+        result += 15500;
+        volumeInputRUB.textContent = result.toFixed(0);
+    }
+    else if (result < 7000000) {
+        result += 20000;
+        volumeInputRUB.textContent = result.toFixed(0);
+    }
+    else if (result < 8000000) {
+        result += 23000;
+        volumeInputRUB.textContent = result.toFixed(0);
+    }
+    else if (result < 9000000) {
+        result += 25000;
+        volumeInputRUB.textContent = result.toFixed(0);
+    }
+    else if (result < 10000000) {
+        result += 27000;
+        volumeInputRUB.textContent = result.toFixed(0);
+    }
+    else {
+        result += 30000;
+        volumeInputRUB.textContent = result.toFixed(0);
+    }
     
   // Считаем сумму Расходы по России
   sumResult = result + customsClearanceRUBText + temporaryStorageRUBText + companyCommissionRUBText + drivingVladivostokRUBText
@@ -250,8 +293,51 @@ calcBtn.addEventListener('click', function(e) {
         textError.textContent = '';
     }  
         
-    // Считаем таможенную пошлину
-    volumeInputRUB.textContent = parseFloat(customsDuty).toFixed(0);
+    // Считаем таможенную пошлину 
+    if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 200000) {
+        customsDuty += 775;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 450000) {
+        customsDuty += 1550;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 1200000) {
+        customsDuty += 3100;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 2700000) {
+        customsDuty += 8530;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 4200000) {
+        customsDuty += 12000;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 5500000) {
+        customsDuty += 15500;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 7000000) {
+        customsDuty += 20000;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 8000000) {
+        customsDuty += 23000;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 9000000) {
+        customsDuty += 25000;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 10000000) {
+        customsDuty += 27000;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else {
+        customsDuty += 30000;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
     
     // Считаем сумму Расходы по России
     const sum = customsDuty + customsClearanceRUBText + temporaryStorageRUBText + companyCommissionRUBText + drivingVladivostokRUBText
@@ -281,9 +367,52 @@ calcBtn.addEventListener('click', function(e) {
         textError.textContent = '';
     }  
         
-    // Считаем таможенную пошлину
-    volumeInputRUB.textContent = parseFloat(customsDuty).toFixed(0);
-    
+    // Считаем таможенную пошлину 
+    if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 200000) {
+        customsDuty += 775;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 450000) {
+        customsDuty += 1550;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 1200000) {
+        customsDuty += 3100;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 2700000) {
+        customsDuty += 8530;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 4200000) {
+        customsDuty += 12000;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 5500000) {
+        customsDuty += 15500;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 7000000) {
+        customsDuty += 20000;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 8000000) {
+        customsDuty += 23000;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 9000000) {
+        customsDuty += 25000;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 10000000) {
+        customsDuty += 27000;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+    else {
+        customsDuty += 30000;
+        volumeInputRUB.textContent = customsDuty.toFixed(0);
+    }
+        
     // Считаем сумму Расходы по России
     const sum = customsDuty + customsClearanceRUBText + temporaryStorageRUBText + companyCommissionRUBText + drivingVladivostokRUBText
     totalRUB.textContent = sum.toFixed(0);
