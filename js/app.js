@@ -287,20 +287,20 @@ calcBtn.addEventListener('click', function(e) {
 
     if (selectedOption === "option2") {
     if (parseFloat(volumeInput.value) > 1800) {
-        customsDuty = (parseFloat(volumeInput.value) * (2.7 * euroRate)) + (0.17 * 20000);
+        customsDuty = (parseFloat(volumeInput.value) * (2.7 * euroRate)) + (0.26 * 20000);
         textError.textContent = '';
         
     }
     else if (parseFloat(volumeInput.value) > 1500) {
-        customsDuty = (parseFloat(volumeInput.value) * (2.5 * euroRate)) + (0.17 * 20000);
+        customsDuty = (parseFloat(volumeInput.value) * (2.5 * euroRate)) + (0.26 * 20000);
         textError.textContent = '';
     }  
     else if (parseFloat(volumeInput.value) > 1000) {
-        customsDuty = (parseFloat(volumeInput.value) * (1.7 * euroRate)) + (0.17 * 20000);
+        customsDuty = (parseFloat(volumeInput.value) * (1.7 * euroRate)) + (0.26 * 20000);
         textError.textContent = '';
     }  
     else if (parseFloat(volumeInput.value) <= 1000) {
-        customsDuty = (parseFloat(volumeInput.value) * (1.5 * euroRate)) + (0.17 * 20000);
+        customsDuty = (parseFloat(volumeInput.value) * (1.5 * euroRate)) + (0.26 * 20000);
         textError.textContent = '';
     }  
         
@@ -361,20 +361,20 @@ calcBtn.addEventListener('click', function(e) {
     
     if (selectedOption === "option3") {
     if (parseFloat(volumeInput.value) > 1800) {
-        customsDuty = (parseFloat(volumeInput.value) * (4.8 * euroRate)) + (0.17 * 20000);
+        customsDuty = (parseFloat(volumeInput.value) * (4.8 * euroRate)) + (0.26 * 20000);
         textError.textContent = '';
         
     }
     else if (parseFloat(volumeInput.value) > 1500) {
-        customsDuty = (parseFloat(volumeInput.value) * (3.5 * euroRate)) + (0.17 * 20000);
+        customsDuty = (parseFloat(volumeInput.value) * (3.5 * euroRate)) + (0.26 * 20000);
         textError.textContent = '';
     }  
     else if (parseFloat(volumeInput.value) > 1000) {
-        customsDuty = (parseFloat(volumeInput.value) * (3.2 * euroRate)) + (0.17 * 20000);
+        customsDuty = (parseFloat(volumeInput.value) * (3.2 * euroRate)) + (0.26 * 20000);
         textError.textContent = '';
     }  
     else if (parseFloat(volumeInput.value) <= 1000) {
-        customsDuty = (parseFloat(volumeInput.value) * (3 * euroRate)) + (0.17 * 20000);
+        customsDuty = (parseFloat(volumeInput.value) * (3 * euroRate)) + (0.26 * 20000);
         textError.textContent = '';
     }  
         
