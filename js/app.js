@@ -153,7 +153,7 @@ calcBtn.addEventListener('click', function(e) {
     
     if (selectedOption === "option1") {
     input1 = parseFloat(priceInput.value) * parseFloat(jpyRate);
-    input2 = parseFloat(volumeInput.value) * euroRate + (0.17 * 20000);
+    input2 = parseFloat(volumeInput.value) * euroRate;
     // Пересчитываем euro в рубли
     const euroRate8500 = parseFloat(euroRate) * 8500;
     const euroRate16700 = parseFloat(euroRate) * 16700;
@@ -163,7 +163,7 @@ calcBtn.addEventListener('click', function(e) {
     
     
     if (input1 <= euroRate8500) {
-    let minSum = input2 * 2.5;  // Вычисляем минимальную сумму
+    let minSum = input2 * 2.5 + (0.17 * 20000);  // Вычисляем минимальную сумму
     let sum = input1 * 0.54;  // Вычисляем сумму с коэффициентом  
 
     if (sum >= minSum) {
@@ -174,7 +174,7 @@ calcBtn.addEventListener('click', function(e) {
   }
       
     else if (input1 <= euroRate16700) {
-    let minSum = input2 * 3.5;  // Вычисляем минимальную сумму
+    let minSum = input2 * 3.5 + (0.17 * 20000);  // Вычисляем минимальную сумму
     let sum = input1 * 0.48;  // Вычисляем сумму с коэффициентом
 
     if (sum >= minSum) {
@@ -185,7 +185,7 @@ calcBtn.addEventListener('click', function(e) {
   } 
     
     else if (input1 <= euroRate42300) {
-    let minSum = input2 * 5.5;  // Вычисляем минимальную сумму
+    let minSum = input2 * 5.5 + (0.17 * 20000);  // Вычисляем минимальную сумму
     let sum = input1 * 0.48;  // Вычисляем сумму с коэффициентом
 
     if (sum >= minSum) {
@@ -196,7 +196,7 @@ calcBtn.addEventListener('click', function(e) {
   } 
     
     else if (input1 <= euroRate84500) {
-    let minSum = input2 * 7.5;  // Вычисляем минимальную сумму
+    let minSum = input2 * 7.5 + (0.17 * 20000);  // Вычисляем минимальную сумму
     let sum = input1 * 0.48;  // Вычисляем сумму с коэффициентом
 
     if (sum >= minSum) {
@@ -207,7 +207,7 @@ calcBtn.addEventListener('click', function(e) {
   } 
     
     else if (input1 <= euroRate169000) {
-    let minSum = input2 * 15;  // Вычисляем минимальную сумму
+    let minSum = input2 * 15 + (0.17 * 20000);  // Вычисляем минимальную сумму
     let sum = input1 * 0.48;  // Вычисляем сумму с коэффициентом
 
     if (sum >= minSum) {
