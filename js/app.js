@@ -218,50 +218,53 @@ calcBtn.addEventListener('click', function(e) {
   } 
     
   // Считаем таможенную пошлину 
-    if  (result < 200000) {
-        result += 775;
-        volumeInputRUB.textContent = result.toFixed(0);
-    }
-    else if (result < 450000) {
-        result += 1550;
-        volumeInputRUB.textContent = result.toFixed(0);
-    }
-    else if (result < 1200000) {
-        result += 3100;
-        volumeInputRUB.textContent = result.toFixed(0);
-    }
-    else if (result < 2700000) {
-        result += 8530;
-        volumeInputRUB.textContent = result.toFixed(0);
-    }
-    else if (result < 4200000) {
-        result += 12000;
-        volumeInputRUB.textContent = result.toFixed(0);
-    }
-    else if (result < 5500000) {
-        result += 15500;
-        volumeInputRUB.textContent = result.toFixed(0);
-    }
-    else if (result < 7000000) {
-        result += 20000;
-        volumeInputRUB.textContent = result.toFixed(0);
-    }
-    else if (result < 8000000) {
-        result += 23000;
-        volumeInputRUB.textContent = result.toFixed(0);
-    }
-    else if (result < 9000000) {
-        result += 25000;
-        volumeInputRUB.textContent = result.toFixed(0);
-    }
-    else if (result < 10000000) {
-        result += 27000;
-        volumeInputRUB.textContent = result.toFixed(0);
-    }
-    else {
-        result += 30000;
-        volumeInputRUB.textContent = result.toFixed(0);
-    }
+//    if  (result < 200000) {
+//        result += 775;
+//        volumeInputRUB.textContent = result.toFixed(0);
+//    }
+//    else if (result < 450000) {
+//        result += 1550;
+//        volumeInputRUB.textContent = result.toFixed(0);
+//    }
+//    else if (result < 1200000) {
+//        result += 3100;
+//        volumeInputRUB.textContent = result.toFixed(0);
+//    }
+//    else if (result < 2700000) {
+//        result += 8530;
+//        volumeInputRUB.textContent = result.toFixed(0);
+//    }
+//    else if (result < 4200000) {
+//        result += 12000;
+//        volumeInputRUB.textContent = result.toFixed(0);
+//    }
+//    else if (result < 5500000) {
+//        result += 15500;
+//        volumeInputRUB.textContent = result.toFixed(0);
+//    }
+//    else if (result < 7000000) {
+//        result += 20000;
+//        volumeInputRUB.textContent = result.toFixed(0);
+//    }
+//    else if (result < 8000000) {
+//        result += 23000;
+//        volumeInputRUB.textContent = result.toFixed(0);
+//    }
+//    else if (result < 9000000) {
+//        result += 25000;
+//        volumeInputRUB.textContent = result.toFixed(0);
+//    }
+//    else if (result < 10000000) {
+//        result += 27000;
+//        volumeInputRUB.textContent = result.toFixed(0);
+//    }
+//    else {
+//        result += 30000;
+//        volumeInputRUB.textContent = result.toFixed(0);
+//    }
+      
+  // Выводим таможенную пошлину
+  volumeInputRUB.textContent = result.toFixed(0);
     
   // Считаем сумму Расходы по России
   sumResult = result + customsClearanceRUBText + temporaryStorageRUBText + companyCommissionRUBText + drivingVladivostokRUBText
