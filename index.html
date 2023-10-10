@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/calc.css">
     <title>Document</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
         <p class="calc__text">
             <label class="checkbox-wrapper">
                 <span class="title__inline">Аукционная стоимость JPY</span>
-                <input type="number" value="50" id="price-input" class="title__inline" />
+                <input class="input" type="number" value="50" id="price-input" class="title__inline" />
                 <span class="title__inline--span" id="price-text"></span>
             </label>
         </p>
@@ -21,7 +21,7 @@
             <span class="form-control-wrap">
                 <label class="checkbox-wrapper">
                     <span class="title__inline">Возраст автомобиля</span>
-                    <select name="type_of_house" id="mySelect"> 
+                    <select class="select" name="type_of_house" id="mySelect"> 
                         <option value="option1" name="resale">менее 3 лет</option>
                         <option value="option2">от 3 до 5 лет</option>
                         <option value="option3">старше 5 лет</option>  
@@ -32,13 +32,13 @@
         <p class="calc__text">
             <label class="checkbox-wrapper">
                 <span class="title__inline">Объем куб.см.</span>
-                <input type="number" value="0" id="volume-input" class="title__inline input-short" />
+                <input class="input" type="number" value="0" id="volume-input" class="title__inline input-short" />
             </label>
         </p>
         <p>
             <label class="checkbox-wrapper">
                 <span class="title__inline">Мощность л.с.</span>
-                <input type="number"value="0" id="pover-input" class="title__inline input-short" />
+                <input class="input" type="number"value="0" id="pover-input" class="title__inline input-short" />
             </label>
         </p>
         <p class="btn--sub">
@@ -49,11 +49,11 @@
     <div class="result hidden" id="hidden">
         <p class="total-result-sum" id="total-result-sum"></p>
         <div class="result__item">
-            <div class="result__title">Расходы в Японии:</div>
+            <div class="result__title total-res">Расходы в Японии:</div>
             <div class="result__block">
-                <span class="result__text">JPY</span>
-                <span class="result__text">USD</span>
-                <span class="result__text">RUB</span>
+                <span class="result__text total-res">JPY</span>
+                <span class="result__text total-res">USD</span>
+                <span class="result__text total-res">RUB</span>
             </div> 
         </div>
         <div class="result__item">
@@ -81,20 +81,20 @@
             </div> 
         </div>
         <div class="result__item">
-            <div class="result__title result__title--bot">Итого:</div>
+            <div class="result__title total-result-sum">Итого:</div>
             <div class="result__block">
                 <span class="result__text"></span>
                 <span class="result__text"></span>
-                <span class="result__text" id="total-japan">---</span>
+                <span class="result__text total-result-sum" id="total-japan">---</span>
             </div> 
         </div>
 
         <div class="result__item">
-            <div class="result__title">Расходы в России:</div>
+            <div class="result__title total-res">Расходы в России:</div>
             <div class="result__block">
-                <span class="result__text">JPY</span>
-                <span class="result__text">USD</span>
-                <span class="result__text">RUB</span>
+                <span class="result__text total-res">JPY</span>
+                <span class="result__text total-res">USD</span>
+                <span class="result__text total-res">RUB</span>
             </div> 
         </div>
         <div class="result__item">
@@ -138,33 +138,33 @@
             </div> 
         </div>
         <div class="result__item">
-            <div class="result__title result__title--bot">Итого:</div>
+            <div class="result__title total-result-sum">Итого:</div>
             <div class="result__block">
                 <span class="result__text"></span>
                 <span class="result__text"></span>
-                <span class="result__text" id="total--rub">---</span>
+                <span class="result__text total-result-sum" id="total--rub">---</span>
             </div> 
         </div>
-        <div class="text-valute">
+        <div class="text-valute total-res">
             <span id="text--JPY"></span>
             <span id="text--USD"></span>
             <span id="text--EUR"></span>
         </div>
         <div class="text-red">
-            <p>Обратите внимание! Калькулятор, расположенный на этой странице, разработан специально для расчета платежей при ввозе автомобилей для личного пользования. 
+            <p class="text-red--p">Обратите внимание! Калькулятор, расположенный на этой странице, разработан специально для расчета платежей при ввозе автомобилей для личного пользования. 
             </p>
-            <p>Стоимость фрахта с отдаленных портов уточняйте у менеджера.
+            <p class="text-red--p">Стоимость фрахта с отдаленных портов уточняйте у менеджера.
             </p>
-            <p>Стоимость доставки с Владивостока до Вашего города уточняйте у менеджера.</p>
-            <p>Стоимость оформления на физическое лицо указана без ЭРА-ГЛОНАСС.</p>
-            <p>Мораторий на установку кнопки вызова экстренных служб для физических лиц продлен до 1 февраля 2024 года.</p>
-            <p>Расчёт производится по текущему курсу по данным ЦБ РФ.</p>
-            <p>Итоговая стоимость автомобиля является ориентировочной.</p>
+            <p class="text-red--p">Стоимость доставки с Владивостока до Вашего города уточняйте у менеджера.</p>
+            <p class="text-red--p">Стоимость оформления на физическое лицо указана без ЭРА-ГЛОНАСС.</p>
+            <p class="text-red--p">Мораторий на установку кнопки вызова экстренных служб для физических лиц продлен до 1 февраля 2024 года.</p>
+            <p class="text-red--p">Расчёт производится по текущему курсу по данным ЦБ РФ.</p>
+            <p class="text-red--p">Итоговая стоимость автомобиля является ориентировочной.</p>
         </div>
     </div>
 </div>
 
 
-<script src="js/app.js"></script>
+<script src="js/calc.js"></script>
 </body>
 </html>

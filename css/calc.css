@@ -1,0 +1,129 @@
+.calc {
+    color: #6e6e6e;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #53a6bc;
+    border-radius: 10px;
+}
+
+.calc__title {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.calc__text {
+    margin-bottom: 7px;
+}
+
+.title__inline {
+    font-size: 18px;
+    font-weight: 400;
+    padding-right: 5px;
+}
+
+.title__inline--span {
+    color: #aaaaaa;
+    font-weight: 400;
+}
+
+.input, .select {
+    border: 2px solid #bbb;
+    padding: 2px 5px;
+}
+
+.btn--sub {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.form-control {
+    min-width: 170px;
+    box-shadow: inset 0 1px 0 0 #bbdaf7;
+    background: #53a6fd;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    text-indent: 0;
+    border: 1px solid #84bbf3;
+    display: inline-block;
+    color: #fff;
+    font-size: 15px;
+    min-height: 26px;
+    line-height: 26px;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 1px 0 #528ecc;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.form-control:hover {
+    background: #6aa3de;
+}
+    
+/* Result */
+.hidden {
+    display: none;
+}
+
+.result {
+    max-width: 800px;
+    color: #aaaaaa;
+}
+
+.result__item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #56ade1;
+    padding: 3px 0 5px 0;
+}
+
+
+.result__block {
+    display: flex;
+    justify-content: space-between;
+    min-width: 400px;
+    padding: 0 15px;
+}
+
+.total-result-sum {
+    font-size: 18px;
+    font-weight: 700;
+    color: #6e6e6e;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+.total-res {
+    font-size: 18px;
+    font-weight: 700;
+    color: #6e6e6e;
+    text-transform: uppercase;
+}
+
+.result__text {
+    flex: 0 1 33.33%;
+}
+
+.text-red {
+    color: red;
+}
+
+.text-red--p {
+    margin: 0 0 2px 0;
+}
+
+.text-valute {
+    font-weight: 700;
+    margin: 5px 0 10px 0;
+}
+
+#text-error {
+    color: red;
+}
