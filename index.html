@@ -47,104 +47,120 @@
         <p id="text-error"></p>
     </form>
     <div class="result hidden" id="hidden">
-        <p class="total-result-sum" id="total-result-sum"></p>
-        <div class="result__item">
+        <div class="result__item total-res--jpn">
             <div class="result__title total-res">Расходы в Японии:</div>
             <div class="result__block">
+<!--
                 <span class="result__text total-res">JPY</span>
                 <span class="result__text total-res">USD</span>
+-->
                 <span class="result__text total-res">RUB</span>
             </div> 
         </div>
         <div class="result__item">
-            <div class="result__title">Аукционная стоимость:</div>
+            <div class="result__title">Аукционная стоимость: <span class="result__text" id="auction-price--JPY">---</span></div>
             <div class="result__block">
-                <span class="result__text" id="auction-price--JPY">---</span>
-                <span class="result__text"></span>
+                
+<!--                <span class="result__text"></span>-->
                 <span class="result__text" id="auction-price--RUB"></span>
             </div> 
         </div>
         <div class="result__item">
-            <div class="result__title">Расходы в Японии от:</div>
+            <div class="result__title">Расходы в Японии от: <span class="result__text" id="expenses-japan--JPY">---</span></div>
             <div class="result__block">
-                <span class="result__text" id="expenses-japan--JPY">---</span>
-                <span class="result__text"></span>
+<!--                <span class="result__text"></span>-->
                 <span class="result__text" id="expenses-japan--RUB"></span>
             </div> 
         </div>
         <div class="result__item">
-            <div class="result__title">Фрахт до Владивостока:</div>
+            <div class="result__title">Фрахт до Владивостока: <span class="result__text" id="freight-to-vladivostok--USD"></span></div>
             <div class="result__block">
-                <span class="result__text"></span>
-                <span class="result__text" id="freight-to-vladivostok--USD"></span>
+<!--                <span class="result__text"></span>-->
                 <span class="result__text" id="freight-to-vladivostok--RUB"></span>
             </div> 
         </div>
-        <div class="result__item">
+        <div class="result__item total-res--jpn">
             <div class="result__title total-result-sum">Итого:</div>
             <div class="result__block">
+<!--
                 <span class="result__text"></span>
                 <span class="result__text"></span>
+-->
                 <span class="result__text total-result-sum" id="total-japan">---</span>
             </div> 
         </div>
 
-        <div class="result__item">
+        <div class="result__item total-res--rus">
             <div class="result__title total-res">Расходы в России:</div>
             <div class="result__block">
+<!--
                 <span class="result__text total-res">JPY</span>
                 <span class="result__text total-res">USD</span>
+-->
                 <span class="result__text total-res">RUB</span>
             </div> 
         </div>
         <div class="result__item">
             <div class="result__title">Таможенная пошлина, утилизационный сбор и таможенное оформление:</div>
             <div class="result__block">
+<!--
                 <span class="result__text"></span>
                 <span class="result__text"></span>
+-->
                 <span class="result__text" id="volume-input--RUB">---</span>
             </div> 
         </div>
         <div class="result__item">
             <div class="result__title">Услуги брокера, СБКТС, перегон до лаборатории:</div>
             <div class="result__block">
+<!--
                 <span class="result__text"></span>
                 <span class="result__text"></span>
+-->
                 <span class="result__text" id="customs-clearance--rub">34000</span>
             </div> 
         </div>
         <div class="result__item">
             <div class="result__title">СВХ (склад временного хранения):</div>
             <div class="result__block">
+<!--
                 <span class="result__text"></span>
                 <span class="result__text"></span>
+-->
                 <span class="result__text" id="temporary-storage--rub">36000</span>
             </div> 
         </div>
         <div class="result__item">
             <div class="result__title">Комиссия компании:</div>
             <div class="result__block">
+<!--
                 <span class="result__text"></span>
                 <span class="result__text"></span>
+-->
                 <span class="result__text" id="company-commission--rub">40000</span>
             </div> 
         </div>
         <div class="result__item">
             <div class="result__title">Перегоны по Владивостоку:</div>
             <div class="result__block">
+<!--
                 <span class="result__text"></span>
                 <span class="result__text"></span>
+-->
                 <span class="result__text" id="driving-vladivostok--rub">4000</span>
             </div> 
         </div>
-        <div class="result__item">
+        <div class="result__item total-res--rus">
             <div class="result__title total-result-sum">Итого:</div>
             <div class="result__block">
+<!--
                 <span class="result__text"></span>
                 <span class="result__text"></span>
+-->
                 <span class="result__text total-result-sum" id="total--rub">---</span>
             </div> 
         </div>
+        <p class="total-result-sum" id="total-result-sum"></p>
         <div class="text-valute total-res">
             <span id="text--JPY"></span>
             <span id="text--USD"></span>
@@ -155,7 +171,6 @@
             </p>
             <p class="text-red--p">Стоимость фрахта с отдаленных портов уточняйте у менеджера.
             </p>
-            <p class="text-red--p">Стоимость доставки с Владивостока до Вашего города уточняйте у менеджера.</p>
             <p class="text-red--p">Стоимость оформления на физическое лицо указана без ЭРА-ГЛОНАСС.</p>
             <p class="text-red--p">Мораторий на установку кнопки вызова экстренных служб для физических лиц продлен до 1 февраля 2024 года.</p>
             <p class="text-red--p">Расчёт производится по текущему курсу по данным ЦБ РФ.</p>
