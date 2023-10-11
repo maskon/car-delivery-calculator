@@ -87,7 +87,7 @@ form.addEventListener('input', function() {
     // text
     const priceTextValue1 = jpyRateRUB.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     priceText.textContent = priceTextValue1 + ' руб';
     // Выводим Аукционная стоимость
