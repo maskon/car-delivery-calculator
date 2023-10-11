@@ -29,7 +29,6 @@ const companyCommissionRUB = document.querySelector('#company-commission--rub');
 const drivingVladivostokRUB = document.querySelector('#driving-vladivostok--rub');
 const totalRUB = document.querySelector('#total--rub');
 
-
 // Получем текстконтент Расходы по России
 const customsClearanceRUBText = +customsClearanceRUB.textContent;
 const temporaryStorageRUBText = +temporaryStorageRUB.textContent;
@@ -95,27 +94,27 @@ form.addEventListener('input', function() {
     auctionPriceJPY.textContent = '(' + priceInput.value + ')' + 'JPY';
     auctionPriceRUB.textContent = jpyRateRUB.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     // Выводим Расходы в Японии от
     expensesJapanJPY.textContent = '(95000 JPY)';
     let expensesJapanConvert = jpyRate * 95000;
     expensesJapanRUB.textContent = expensesJapanConvert.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     // Выводим Фрахт до Владивостока
     freightToVladivostokUSD.textContent = '(500 USD)';
     let freightToVladivostokConvert = usdRate * 500;
     freightToVladivostokRUB.textContent = freightToVladivostokConvert.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     // Выводим итого
     totalJapanConvert = +jpyRateRUB + +expensesJapanConvert + +freightToVladivostokConvert;
     totalJapan.textContent = totalJapanConvert.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     
     
@@ -247,56 +246,56 @@ calcBtn.addEventListener('click', function(e) {
         result += 775;
         volumeInputRUB.textContent = result.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (result < 450000) {
         result += 1550;
         volumeInputRUB.textContent = result.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (result < 1200000) {
         result += 3100;
         volumeInputRUB.textContent = result.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (result < 2700000) {
         result += 8530;
         volumeInputRUB.textContent = result.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (result < 4200000) {
         result += 12000;
         volumeInputRUB.textContent = result.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (result < 5500000) {
         result += 15500;
         volumeInputRUB.textContent = result.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (result < 7000000) {
         result += 20000;
         volumeInputRUB.textContent = result.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (result < 8000000) {
         result += 23000;
         volumeInputRUB.textContent = result.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (result < 9000000) {
@@ -310,14 +309,14 @@ calcBtn.addEventListener('click', function(e) {
         result += 27000;
         volumeInputRUB.textContent = result.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else {
         result += 30000;
         volumeInputRUB.textContent = result.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     
@@ -325,16 +324,38 @@ calcBtn.addEventListener('click', function(e) {
   sumResult = result + customsClearanceRUBText + temporaryStorageRUBText + companyCommissionRUBText + drivingVladivostokRUBText
   totalRUB.textContent = sumResult.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
         
   // Считаем общую сумму и выводим
   const totalResultSum = sumResult + totalJapanConvert;
   totalResultSumText.textContent = 'Конечная стоимость автомобиля во Владивостоке ' + totalResultSum.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
-    }); + ' руб.';
-  
+        maximumFractionDigits: 0,
+    }) + ' руб.';
+      
+    // Выводим конверт суммы
+    const customsClearanceRUBConvert = 34000;
+    customsClearanceRUB.textContent = customsClearanceRUBConvert.toLocaleString('ru-RU', {
+        minimumFractionDigits: 0,      
+        maximumFractionDigits: 0,
+    });
+    const temporaryStorageRUBConvert = 36000;
+    temporaryStorageRUB.textContent = temporaryStorageRUBConvert.toLocaleString('ru-RU', {
+        minimumFractionDigits: 0,      
+        maximumFractionDigits: 0,
+    });
+    const companyCommissionRUBConvert = 36000;
+    companyCommissionRUB.textContent = companyCommissionRUBConvert.toLocaleString('ru-RU', {
+        minimumFractionDigits: 0,      
+        maximumFractionDigits: 0,
+    });
+    const drivingVladivostokRUBConvert = 36000;
+    drivingVladivostokRUB.textContent = drivingVladivostokRUBConvert.toLocaleString('ru-RU', {
+        minimumFractionDigits: 0,      
+        maximumFractionDigits: 0,
+    });
+
   return result;  // Возвращаем результат   
 }
 
@@ -362,77 +383,77 @@ calcBtn.addEventListener('click', function(e) {
         customsDuty += 775;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 450000) {
         customsDuty += 1550;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 1200000) {
         customsDuty += 3100;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 2700000) {
         customsDuty += 8530;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 4200000) {
         customsDuty += 12000;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 5500000) {
         customsDuty += 15500;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 7000000) {
         customsDuty += 20000;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 8000000) {
         customsDuty += 23000;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 9000000) {
         customsDuty += 25000;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 10000000) {
         customsDuty += 27000;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else {
         customsDuty += 30000;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     
@@ -440,15 +461,37 @@ calcBtn.addEventListener('click', function(e) {
     const sum = customsDuty + customsClearanceRUBText + temporaryStorageRUBText + companyCommissionRUBText + drivingVladivostokRUBText
     totalRUB.textContent = sum.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
         
     // Считаем общую сумму и выводим
     const totalResultSum = sum + totalJapanConvert;
     totalResultSumText.textContent = 'Конечная стоимость автомобиля во Владивостоке ' + totalResultSum.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     }); + ' руб.';
+        
+    // Выводим конверт суммы
+    const customsClearanceRUBConvert = 34000;
+    customsClearanceRUB.textContent = customsClearanceRUBConvert.toLocaleString('ru-RU', {
+        minimumFractionDigits: 0,      
+        maximumFractionDigits: 0,
+    });
+    const temporaryStorageRUBConvert = 36000;
+    temporaryStorageRUB.textContent = temporaryStorageRUBConvert.toLocaleString('ru-RU', {
+        minimumFractionDigits: 0,      
+        maximumFractionDigits: 0,
+    });
+    const companyCommissionRUBConvert = 36000;
+    companyCommissionRUB.textContent = companyCommissionRUBConvert.toLocaleString('ru-RU', {
+        minimumFractionDigits: 0,      
+        maximumFractionDigits: 0,
+    });
+    const drivingVladivostokRUBConvert = 36000;
+    drivingVladivostokRUB.textContent = drivingVladivostokRUBConvert.toLocaleString('ru-RU', {
+        minimumFractionDigits: 0,      
+        maximumFractionDigits: 0,
+    });
 };
     
     if (selectedOption === "option3") {
@@ -475,77 +518,77 @@ calcBtn.addEventListener('click', function(e) {
         customsDuty += 775;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 450000) {
         customsDuty += 1550;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 1200000) {
         customsDuty += 3100;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 2700000) {
         customsDuty += 8530;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 4200000) {
         customsDuty += 12000;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 5500000) {
         customsDuty += 15500;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 7000000) {
         customsDuty += 20000;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 8000000) {
         customsDuty += 23000;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 9000000) {
         customsDuty += 25000;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else if (parseFloat(priceInput.value) * parseFloat(jpyRate) < 10000000) {
         customsDuty += 27000;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
     else {
         customsDuty += 30000;
         volumeInputRUB.textContent = customsDuty.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
     }
         
@@ -553,15 +596,37 @@ calcBtn.addEventListener('click', function(e) {
     const sum = customsDuty + customsClearanceRUBText + temporaryStorageRUBText + companyCommissionRUBText + drivingVladivostokRUBText
     totalRUB.textContent = sum.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     });
         
     // Считаем общую сумму и выводим
     const totalResultSum = sum + totalJapanConvert;
     totalResultSumText.textContent = 'Конечная стоимость автомобиля во Владивостоке ' + totalResultSum.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     }) + ' руб.';
+        
+    // Выводим конверт суммы
+    const customsClearanceRUBConvert = 34000;
+    customsClearanceRUB.textContent = customsClearanceRUBConvert.toLocaleString('ru-RU', {
+        minimumFractionDigits: 0,      
+        maximumFractionDigits: 0,
+    });
+    const temporaryStorageRUBConvert = 36000;
+    temporaryStorageRUB.textContent = temporaryStorageRUBConvert.toLocaleString('ru-RU', {
+        minimumFractionDigits: 0,      
+        maximumFractionDigits: 0,
+    });
+    const companyCommissionRUBConvert = 36000;
+    companyCommissionRUB.textContent = companyCommissionRUBConvert.toLocaleString('ru-RU', {
+        minimumFractionDigits: 0,      
+        maximumFractionDigits: 0,
+    });
+    const drivingVladivostokRUBConvert = 36000;
+    drivingVladivostokRUB.textContent = drivingVladivostokRUBConvert.toLocaleString('ru-RU', {
+        minimumFractionDigits: 0,      
+        maximumFractionDigits: 0,
+    });
 };
     
 });
