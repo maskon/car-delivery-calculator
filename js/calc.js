@@ -345,12 +345,12 @@ calcBtn.addEventListener('click', function(e) {
         minimumFractionDigits: 0,      
         maximumFractionDigits: 0,
     });
-    const companyCommissionRUBConvert = 36000;
+    const companyCommissionRUBConvert = 40000;
     companyCommissionRUB.textContent = companyCommissionRUBConvert.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
         maximumFractionDigits: 0,
     });
-    const drivingVladivostokRUBConvert = 36000;
+    const drivingVladivostokRUBConvert = 4000;
     drivingVladivostokRUB.textContent = drivingVladivostokRUBConvert.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
         maximumFractionDigits: 0,
@@ -482,12 +482,12 @@ calcBtn.addEventListener('click', function(e) {
         minimumFractionDigits: 0,      
         maximumFractionDigits: 0,
     });
-    const companyCommissionRUBConvert = 36000;
+    const companyCommissionRUBConvert = 40000;
     companyCommissionRUB.textContent = companyCommissionRUBConvert.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
         maximumFractionDigits: 0,
     });
-    const drivingVladivostokRUBConvert = 36000;
+    const drivingVladivostokRUBConvert = 4000;
     drivingVladivostokRUB.textContent = drivingVladivostokRUBConvert.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
         maximumFractionDigits: 0,
@@ -617,12 +617,12 @@ calcBtn.addEventListener('click', function(e) {
         minimumFractionDigits: 0,      
         maximumFractionDigits: 0,
     });
-    const companyCommissionRUBConvert = 36000;
+    const companyCommissionRUBConvert = 40000;
     companyCommissionRUB.textContent = companyCommissionRUBConvert.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
         maximumFractionDigits: 0,
     });
-    const drivingVladivostokRUBConvert = 36000;
+    const drivingVladivostokRUBConvert = 4000;
     drivingVladivostokRUB.textContent = drivingVladivostokRUBConvert.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
         maximumFractionDigits: 0,
