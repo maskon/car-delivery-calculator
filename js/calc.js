@@ -2,110 +2,109 @@ const form = document.querySelector('#form');
 const blockResult = document.querySelector('#hidden');
 const calcBtn = document.querySelector('#calc_btn');
 
-// Находим Инпуты
 const priceInput = document.querySelector('#price-input');
 const volumeInput = document.querySelector('#volume-input');
 const poverInput = document.querySelector('#pover-input');
 
-// Находим Таможенная пошлина и Утилизационный сбор
 const volumeInputRUB = document.querySelector('#volume-input--RUB');
 
-// Находим Аукционная стоимость
 const auctionPriceJPY = document.querySelector('#auction-price--JPY');
 const auctionPriceRUB = document.querySelector('#auction-price--RUB');
-// Находим Расходы в Японии от
+
 const expensesJapanJPY = document.querySelector('#expenses-japan--JPY');
 const expensesJapanRUB = document.querySelector('#expenses-japan--RUB');
-// Фрахт до Владивостока:
+
 const freightToVladivostokUSD = document.querySelector('#freight-to-vladivostok--USD');
 const freightToVladivostokRUB = document.querySelector('#freight-to-vladivostok--RUB');
-// Итого
+
 const totalJapan = document.querySelector('#total-japan');
 
-// Находим Расходы в России
 const customsClearanceRUB = document.querySelector('#customs-clearance--rub');
 const temporaryStorageRUB = document.querySelector('#temporary-storage--rub');
 const companyCommissionRUB = document.querySelector('#company-commission--rub');
 const drivingVladivostokRUB = document.querySelector('#driving-vladivostok--rub');
 const totalRUB = document.querySelector('#total--rub');
 
-// Получем текстконтент Расходы по России
 const customsClearanceRUBText = +customsClearanceRUB.textContent;
 const temporaryStorageRUBText = +temporaryStorageRUB.textContent;
 const companyCommissionRUBText = +companyCommissionRUB.textContent;
 const drivingVladivostokRUBText = +drivingVladivostokRUB.textContent;
 
-// Текстовые поля
 const textError = document.querySelector('#text-error');
 const priceText = document.querySelector('#price-text');
 const totalResultSumText = document.querySelector('#total-result-sum');
 
-// Текстовые поля курсов валют
 const textJPY = document.querySelector('#text--JPY');
 const textUSD = document.querySelector('#text--USD');
 const textEUR = document.querySelector('#text--EUR');
 
-
-// Получаем элемент <select>
 const selectElement = document.getElementById("mySelect");
 
-
-// Адрес API ЦБ для получения курса валют
 const apiUrl = 'https://www.cbr-xml-daily.ru/daily_json.js';
 
-// Переменные евро и иены
 let jpyRate;
 let euroRate;
 let usdRate;
 
-// сколько евро в 1 рубле
 let euroRateRUB;
 let jpyRateRUB;
 
-// Функция для получения курса иена и евро к рублю
+let totalJapanConvert;
+
+let customsDuty;
+let result;
+let sumResult;
+
 function getRate() {
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
       jpyRate = data.Valute.JPY.Value / 100;
       euroRate = data.Valute.EUR.Value;
-      usdRate = data.Valute.USD.Value;
-      
+      usdRate = data.Valute.USD.Value; 
     })
 };
 
-let totalJapanConvert;
-
-// Вызов функции для получения курса
 getRate();
 
 form.addEventListener('input', function() {
-
     euroRateRUB = +priceInput.value / euroRate;
     jpyRateRUB = jpyRate * +priceInput.value;
-    
-    // text
+
     const priceTextValue1 = jpyRateRUB.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
         maximumFractionDigits: 0,
     });
     priceText.textContent = priceTextValue1 + ' руб';
     // Выводим Аукционная стоимость
-    auctionPriceJPY.textContent = '(' + priceInput.value + ' JPY' + ')';
+    let priceInputValueJPY = +priceInput.value;
+    let priceInputValueJPYConvert = priceInputValueJPY.toLocaleString('ru-RU', {
+        minimumFractionDigits: 0,      
+        maximumFractionDigits: 0,
+    });
+    auctionPriceJPY.textContent = '(' + priceInputValueJPYConvert + ' JPY' + ')';
     auctionPriceRUB.textContent = jpyRateRUB.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
         maximumFractionDigits: 0,
     });
     // Выводим Расходы в Японии от
-    expensesJapanJPY.textContent = '(95000 JPY)';
-    let expensesJapanConvert = jpyRate * 95000;
+    const number95000 = 95000;
+    expensesJapanJPY.textContent = `(${number95000.toLocaleString('ru-RU', {
+        minimumFractionDigits: 0,      
+        maximumFractionDigits: 0,
+    })} JPY)`;
+    let expensesJapanConvert = jpyRate * number95000;
     expensesJapanRUB.textContent = expensesJapanConvert.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
         maximumFractionDigits: 0,
     });
     // Выводим Фрахт до Владивостока
-    freightToVladivostokUSD.textContent = '(500 USD)';
-    let freightToVladivostokConvert = usdRate * 500;
+    const number500 = 500;
+    freightToVladivostokUSD.textContent = `(${number500.toLocaleString('ru-RU', {
+        minimumFractionDigits: 0,      
+        maximumFractionDigits: 0,
+    })} USD)`;
+    let freightToVladivostokConvert = usdRate * number500;
     freightToVladivostokRUB.textContent = freightToVladivostokConvert.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,      
         maximumFractionDigits: 0,
@@ -116,9 +115,7 @@ form.addEventListener('input', function() {
         minimumFractionDigits: 0,      
         maximumFractionDigits: 0,
     });
-    
-    
-    
+
     // Выводим курсы валют
     textJPY.textContent = 'JPY/RUB: ' + jpyRate.toFixed(2)
     textUSD.textContent = 'USD/RUB: ' + usdRate.toFixed(2)
@@ -130,15 +127,7 @@ form.addEventListener('input', function() {
     else {
         textError.textContent = '';
     }
-    
-
 });
-
-
-let customsDuty;
-let result;
-let sumResult;
-
 
 // Функция появления блока с результатами
 calcBtn.addEventListener('click', function(e) {
@@ -173,8 +162,7 @@ calcBtn.addEventListener('click', function(e) {
     const euroRate42300 = parseFloat(euroRate) * 42300;
     const euroRate84500 = parseFloat(euroRate) * 84500;
     const euroRate169000 = parseFloat(euroRate) * 169000;
-    
-    
+
     if (input1 <= euroRate8500) {
     let minSum = input2 * 2.5 + (0.17 * 20000);  // Вычисляем минимальную сумму
     let sum = input1 * 0.54;  // Вычисляем сумму с коэффициентом  
@@ -627,6 +615,5 @@ calcBtn.addEventListener('click', function(e) {
         minimumFractionDigits: 0,      
         maximumFractionDigits: 0,
     });
-};
-    
+  };    
 });
